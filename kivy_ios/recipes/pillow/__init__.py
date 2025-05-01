@@ -5,8 +5,9 @@ import os
 
 
 class PillowRecipe(CythonRecipe):
-    version = "8.2.0"
-    url = "https://pypi.python.org/packages/source/P/Pillow/Pillow-{version}.tar.gz"
+    version = "11.0.0"
+    #url = "https://pypi.python.org/packages/source/p/pillow/pillow-{version}.tar.gz"
+    url = "https://github.com/python-pillow/Pillow/archive/refs/tags/{version}.tar.gz"
     library = "libpillow.a"
     depends = [
         "hostpython3",
@@ -18,7 +19,6 @@ class PillowRecipe(CythonRecipe):
     python_depends = ["setuptools"]
     pbx_libraries = ["libz", "libbz2"]
     include_per_platform = True
-    hostpython_prerequisites = ["Cython==0.29.37"]
     cythonize = False
 
     def prebuild_platform(self, plat):
